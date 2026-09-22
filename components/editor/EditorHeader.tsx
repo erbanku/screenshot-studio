@@ -54,6 +54,7 @@ import {
 import { cn } from "@/lib/utils";
 import { GitHubStarButton } from "@/components/ui/github-star-button";
 import { FeedbackWidget } from "@/components/FeedbackWidget";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   hasVisibleMockups,
@@ -534,6 +535,7 @@ export function EditorHeader() {
         </div>
 
         <div className="flex items-center gap-1 justify-self-end">
+          <ThemeToggle />
           {!isMobile ? <FeedbackWidget /> : null}
           {!isMobile ? <GitHubStarButton compact /> : null}
           <a

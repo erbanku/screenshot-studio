@@ -20,6 +20,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface NavigationProps {
   brandName?: string;
@@ -313,6 +314,7 @@ export function Navigation({
         </div>
 
         <div className="col-start-3 flex items-center gap-2 justify-self-end shrink-0">
+          <ThemeToggle />
           <div className="hidden md:block">
             <GitHubStarButton />
           </div>
