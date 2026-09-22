@@ -38,6 +38,7 @@ import { PathTracker } from "@/components/landing/GoBackButton";
 import { getRootJsonLd } from "@/lib/seo/json-ld";
 import { Databuddy } from "@databuddy/sdk/react";
 import { PRODUCT_FACTS, atLeast } from "@/lib/seo/product-facts";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // System UI fonts
 const geistSans = Geist({
@@ -432,7 +433,7 @@ export default async function RootLayout({
   const rootJsonLd = getRootJsonLd();
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <meta name="msvalidate.01" content="A3B8CB50BBD78710971A13FA3EE1E544" />
       <link
         rel="alternate"
@@ -474,13 +475,15 @@ gtag('config', 'G-WWTQR26VH4');`}
           trackErrors
           trackOutgoingLinks
         />
-        <QueryProvider>
-          <GlobalDropZone>
-            <PathTracker />
-            {children}
-          </GlobalDropZone>
-          <Toaster />
-        </QueryProvider>
+        <ThemeProvider>
+          <QueryProvider>
+            <GlobalDropZone>
+              <PathTracker />
+              {children}
+            </GlobalDropZone>
+            <Toaster />
+          </QueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

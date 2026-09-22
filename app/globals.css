@@ -481,13 +481,22 @@
 .landing-heading {
   background-image: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.38) 0%,
-    rgba(255, 255, 255, 0.72) 42%,
-    #ffffff 100%
+    rgba(10, 10, 10, 0.55) 0%,
+    rgba(10, 10, 10, 0.82) 45%,
+    #0a0a0a 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.dark .landing-heading {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(255, 255, 255, 0.72) 42%,
+    #ffffff 100%
+  );
 }
 
 /* Moveable control box — must be outside @layer base so it isn't

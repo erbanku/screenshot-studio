@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import "./globals.css";
 
 export default function GlobalError({
   error,
@@ -14,12 +15,19 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var k="screenshot-studio-theme";var t=localStorage.getItem(k);if(t==="dark"){document.documentElement.classList.add("dark");}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body
         style={{
           margin: 0,
-          backgroundColor: "#1e1e1e",
-          color: "#e0e0e0",
+          backgroundColor: "var(--background, #ffffff)",
+          color: "var(--foreground, #1e1e1e)",
           fontFamily:
             "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         }}
