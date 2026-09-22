@@ -6,15 +6,19 @@ Deploy Screenshot Studio to Cloudflare Workers on account **Cloudflare 1 - Main*
 
 - Node.js 20+
 - Domain `erbanku.com` on Cloudflare DNS (same account)
-- API token with **Workers Scripts Edit**, **Workers Routes Edit**, and **Account Settings Read**
+- **`CLOUDFLARE_API_TOKEN`** with **Workers Scripts Edit** and **Workers Routes Edit** (account `36cc5642d2d603e7486c6345407d2550`)
+- **Bun on `PATH`** if `bun.lock` is present (OpenNext invokes `bun x wrangler` for deploy). Install: https://bun.sh — or use an environment that already has `bun`.
 
 ```bash
 export CLOUDFLARE_API_TOKEN="<token>"
-# Optional if not using wrangler.jsonc account_id:
 export CLOUDFLARE_ACCOUNT_ID="36cc5642d2d603e7486c6345407d2550"
 ```
 
-Login alternative: `npx wrangler login`
+Login alternative (interactive only): `npx wrangler login`
+
+Without `CLOUDFLARE_API_TOKEN`, Wrangler fails in CI/non-interactive mode with:
+
+`In a non-interactive environment, it's necessary to set a CLOUDFLARE_API_TOKEN environment variable for wrangler to work.`
 
 ## Build and deploy
 
