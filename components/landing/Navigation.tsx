@@ -336,9 +336,12 @@ export function Navigation({
           className="w-full max-w-[320px] gap-0 bg-background p-0"
         >
           <SheetHeader className="border-b border-border px-5 py-4">
-            <SheetTitle className="text-base font-semibold text-foreground">
-              Menu
-            </SheetTitle>
+            <div className="flex items-center justify-between gap-3">
+              <SheetTitle className="text-base font-semibold text-foreground">
+                Menu
+              </SheetTitle>
+              <ThemeToggle />
+            </div>
           </SheetHeader>
           <nav className="flex flex-col gap-1 p-3" aria-label="Mobile">
             <Link
